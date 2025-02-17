@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POO com HTML, CSS e JavaScript</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Fundamentos da Orientação a Objetos</h1>
+
+<div class="container">
+
+    
+<!-- Classe Base -->
+<div class="classe">
+<h2>Animal</h2>
+<p><strong>Atributos:</strong> nome</p>
+<p><strong>Métodos:</strong> fazerSom(), mover()</p>
+<button onclick="mostrarSom('animal')">Fazer Som</button>
+<button onclick="mostrarMovimento('animal')">Mover</button>
+<button onclick="acariciar('animal')">Fazer Carinho</button>
+</div>
+
+<!-- Classes Filhas (Herança) -->
+<div class="classe heranca">
+<h2>Cachorro</h2>
+<p><strong>Herda de:</strong> Animal</p>
+<p><strong>Métodos sobrescritos:</strong> fazerSom(), mover()</p>
+<button onclick="mostrarSom('cachorro')">Fazer Som</button>
+<button onclick="mostrarMovimento('cachorro')">Mover</button>
+<button onclick="acariciar('cachorro')">Fazer Carinho</button>
+</div>
+
+<div class="classe heranca">
+    <h2>Cachorro A</h2>
+    <p><strong>Herda de:</strong> Animal</p>
+    <p><strong>Métodos sobrescritos:</strong> fazerSom(), mover()</p>
+    <button onclick="mostrarSom('bolinha')">Fazer Som</button>
+    <button onclick="mostrarMovimento('bolinha')">Mover</button>
+    <button onclick="acariciar('bolinha')">Fazer Carinho</button>
+</div>
+
+<div class="classe heranca">
+    <h2>Cachorro B</h2>
+    <p><strong>Herda de:</strong> Animal</p>
+    <p><strong>Métodos sobrescritos:</strong> fazerSom(), mover()</p>
+    <button onclick="mostrarSom('max')">Fazer Som</button>
+    <button onclick="mostrarMovimento('max')">Mover</button>
+    <button onclick="acariciar('max')">Fazer Carinho</button>
+</div>
+
+<div class="classe heranca">
+    <h2>Cachorro C</h2>
+    <p><strong>Herda de:</strong> Animal</p>
+    <p><strong>Métodos sobrescritos:</strong> fazerSom(), mover()</p>
+    <button onclick="mostrarSom('scoob')">Fazer Som</button>
+    <button onclick="mostrarMovimento('scoob')">Mover</button>
+    <button onclick="acariciar('scoob')">Fazer Carinho</button>
+</div>
+
+<div class="classe heranca">
+<h2>Gato</h2>
+<p><strong>Herda de:</strong> Animal</p>
+<p><strong>Métodos sobrescritos:</strong> fazerSom(), mover()</p>
+<button onclick="mostrarSom('gato')">Fazer Som</button>
+<button onclick="mostrarMovimento('gato')">Mover</button>
+</div>
+
+<div class="classe heranca polimorfismo">
+<h2>Pássaro</h2>
+<p><strong>Herda de:</strong> Animal</p>
+<p><strong>Métodos sobrescritos:</strong> fazerSom(), mover()</p>
+<button onclick="mostrarSom('passaro')">Fazer Som</button>
+<button onclick="mostrarMovimento('passaro')">Mover</button>
+</div>
+
+</div>
+
+<h2>Resultado:</h2>
+<p id="resultado" style="font-size: 18px; font-weight: bold;"></p>
+
+<script>
+// Classe Base (Animal)
+class Animal {
+constructor(nome) {
+this.nome = nome; // Encapsulamento (protegendo o dado dentro da classe)
+}
+
+fazerSom() {
+return "Este animal faz um som!";
+}
+
+mover() {
+return "O animal está se movendo!";
+}
+
+acariciar(){
+return "Você deixou o animal feliz";
+}
+
+}
+
+// Classes Filhas (Herança e Polimorfismo)
+class Cachorro extends Animal {
+fazerSom() {
+return `O cachorro ${this.nome} late: Au Au!`;
+}
+
+mover() {
+return `O cachorro ${this.nome} está correndo!`;
+}
+
+acariciar(){
+return `Você deixou o cachorro ${this.nome} feliz`;
+}
+
+}
+
+class Bolinha extends Animal{
+fazerSom(){
+    return `O cachorro ${this.nome} rosna: GRRRRRRRR!`;
+}
+
+mover() {
+return `O cachorro ${this.nome} avança contra você`;
+}
+
+acariciar(){
+return `O cachorro ${this.nome} Morde sua mão`;
+}
+
+}
+
+class Max extends Animal{
+fazerSom(){
+    return `O cachorro ${this.nome} não faz som nenhum...`;
+}
+
+mover() {
+return `O cachorro ${this.nome} deita no chão e começa a rolar`;
+}
+
+acariciar(){
+return `O cachorro ${this.nome} lambe sua mão`;
+}
+
+}
+
+class Scoob extends Animal{
+fazerSom(){
+    return `O cachorro ${this.nome} fala: Scooby-Dooby-Doo-oo-oo`;
+}
+
+mover() {
+return `O cachorro ${this.nome} Corre rapidamente em sua direção`;
+}
+
+acariciar(){
+return `O cachorro ${this.nome} abana o rabo em resposta`;
+}
+
+}
+
+
+
+class Gato extends Animal {
+fazerSom() {
+return `O gato ${this.nome} mia: Miau!`;
+}
+
+mover() {
+return `O gato ${this.nome} está saltando!`;
+}
+}
+
+class Passaro extends Animal {
+fazerSom() {
+return `O pássaro ${this.nome} canta: Piu Piu!`;
+}
+
+mover() {
+return `O pássaro ${this.nome} está voando!`;
+}
+}
+
+// Criando instâncias
+let animal = new Animal("Genérico");
+let cachorro = new Cachorro("Rex");
+let gato = new Gato("Whiskers");
+let passaro = new Passaro("Azulão");
+let bolinha = new Bolinha("Bolinha");
+let max = new Max("Max");
+let scoob = new Scoob("Scooby");
+
+// Funções para exibir os sons e movimentos
+function mostrarSom(tipo) {
+let resultado = document.getElementById("resultado");
+switch (tipo) {
+case 'cachorro':
+resultado.innerText = cachorro.fazerSom();
+break;
+case 'gato':
+resultado.innerText = gato.fazerSom();
+break;
+case 'passaro':
+resultado.innerText = passaro.fazerSom();
+break;
+case 'bolinha':
+resultado.innerText = bolinha.fazerSom();
+break;
+case 'scoob':
+resultado.innerText = scoob.fazerSom();
+break;
+case 'max':
+resultado.innerText = max.fazerSom();
+break;
+default:
+resultado.innerText = animal.fazerSom();
+break;
+}
+}
+
+function mostrarMovimento(tipo) {
+let resultado = document.getElementById("resultado");
+switch (tipo) {
+case 'cachorro':
+resultado.innerText = cachorro.mover();
+break;
+case 'gato':
+resultado.innerText = gato.mover();
+break;
+case 'passaro':
+resultado.innerText = passaro.mover();
+break;
+case 'bolinha':
+resultado.innerText = bolinha.mover();
+break;
+case 'max':
+resultado.innerText = max.mover();
+break;
+case 'scoob':
+resultado.innerText = scoob.mover();
+break;
+default:
+resultado.innerText = animal.mover();
+break;
+}
+}
+
+function acariciar(tipo) {
+let resultado = document.getElementById("resultado");
+switch (tipo) {
+case 'cachorro':
+resultado.innerText = cachorro.acariciar();
+break;
+case 'gato':
+resultado.innerText = gato.mover();
+break;
+case 'passaro':
+resultado.innerText = passaro.mover();
+break;
+case 'bolinha':
+resultado.innerText = bolinha.acariciar();
+break;
+case 'max':
+resultado.innerText = max.acariciar();
+break;
+case 'scoob':
+resultado.innerText = scoob.acariciar();
+break;
+default:
+resultado.innerText = animal.acariciar();
+break;
+}
+}
+</script>
+
+</body>
+</html>
